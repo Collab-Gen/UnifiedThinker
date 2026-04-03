@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Unified Thinker: A General Reasoning Modular Core for Image Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified Thinker</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body { font-family: 'Google Sans', sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; }
+    .hero { text-align: center; padding: 50px 0; }
+    .title { font-size: 2.5rem; font-weight: bold; margin-bottom: 10px; }
+    .authors { font-size: 1.2rem; margin-bottom: 20px; color: #555; }
+    .links { margin-bottom: 30px; }
+    .button { display: inline-block; padding: 10px 20px; margin: 5px; background: #222; color: white; text-decoration: none; border-radius: 25px; transition: 0.3s; }
+    .button:hover { background: #555; }
+    .section-title { font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+    .abstract { background: #f9f9f9; padding: 30px; border-radius: 10px; font-style: italic; }
+    .figure { text-align: center; margin: 30px 0; }
+    .figure img { max-width: 100%; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .caption { font-size: 0.9rem; color: #666; margin-top: 10px; }
+    pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <h1 class="title">Unified Thinker: A General Reasoning Modular Core for Image Generation</h1>
+  <div class="authors">
+    Sashuai Zhou<sup>*</sup>, Xiaoyu<sup>*</sup>, ... (您的作者列表)
+  </div>
+  <div class="institution" style="margin-bottom: 20px; color: #777;">
+    Zhejiang University
+  </div>
+  <div class="links">
+    <a href="#" class="button"><i class="fas fa-file-pdf"></i> Paper</a>
+    <a href="#" class="button"><i class="fab fa-github"></i> Code</a>
+    <a href="#" class="button"><i class="fas fa-database"></i> Data</a>
+  </div>
+</section>
+
+<section class="abstract">
+  <h2 style="text-align: center;">Abstract</h2>
+  <p>
+    尽管高保真图像合成取得了显著进步，但在逻辑密集型指令遵循方面仍面临挑战 [cite: 1, 349]。
+    我们提出了 <strong>Unified Thinker</strong>，这是一种任务无关的通用图像生成推理架构，设计为可插入不同生成器和工作流的统一规划核心 [cite: 4, 352]。
+    Unified Thinker 实现了“思考者（Thinker）”与“生成器（Generator）”的解耦，允许在不重新训练整个模型的情况下进行模块化推理升级 [cite: 5, 353]。
+    我们引入了两阶段训练范式：首先构建结构化规划接口，然后应用强化学习（RL）将策略锚定在像素级反馈中，优化视觉准确性 [cite: 6, 354]。
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Visual Demonstrations</h2>
+  <div class="figure">
+    <img src="assets/images/visual_demo.png" alt="Unified Thinker Visual Demonstrations">
+    <p class="caption">Figure 1: Unified Thinker 在图像编辑和文本生成图像任务中的视觉演示。它能够处理复杂的逻辑指令，如数独求解或基于常识的场景修改 [cite: 22, 442]。</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Methodology: Think-then-Execute</h2>
+  <p>
+    我们的框架由两个核心组件组成：
+    <ul>
+      <li><strong>Thinker</strong>: 一个独立的可训练多模态大语言模型（MLLM），将指令转换为层次化的、生成器友好的规划（包括意图总结、显式约束和子目标） [cite: 25, 445]。</li>
+      <li><strong>Generator</strong>: 基于扩散模型的图像合成后端，根据 Thinker 的输出生成最终图像 [cite: 24, 444]。</li>
+    </ul>
+  </p>
+  <div class="figure">
+    <img src="assets/images/framework.png" alt="Two-stage Training Framework">
+    <p class="caption">Figure 2: 提出的两阶段训练框架：联合监督微调（Joint SFT）和执行引导的双相强化学习（Dual-Phase RL） [cite: 77, 329]。</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Key Results</h2>
+  <p>
+    在多个基准测试（如 RISEBench, WiseBench）中，Unified Thinker 显著提升了指令遵循和约束满足能力 [cite: 32, 452]：
+    <ul>
+      <li><strong>推理增强</strong>：在 RISEBench 上，相比基础生成器，在时间、因果和空间推理维度均有大幅提升 [cite: 106, 115]。</li>
+      <li><strong>模块化迁移</strong>：该推理核心在不同生成器后端（如 Qwen2.5-VL-7B, Qwen3-VL-8B）上表现出良好的跨模型移植性 [cite: 119, 439]。</li>
+    </ul>
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">BibTeX</h2>
+  <pre><code>@article{zhou2026unified,
+  title={Unified Thinker: A General Reasoning Modular Core for Image Generation},
+  author={Zhou, Sashuai and others},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2026}
+}</code></pre>
+</section>
+
+<footer style="text-align: center; padding: 40px 0; color: #888; font-size: 0.8rem;">
+  Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+</footer>
+
+</body>
+</html>
