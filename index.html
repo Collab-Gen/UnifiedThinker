@@ -20,7 +20,7 @@
     body { font-family: 'Inter', sans-serif; color: var(--text-dark); margin: 0; line-height: 1.5; background: #fff; }
     .container { max-width: 950px; margin: 0 auto; padding: 10px 20px; }
 
-    /* Hero Section - 极大压缩间距 */
+    /* Hero Section */
     .hero { text-align: center; padding: 40px 0 20px 0; }
     .title { 
       font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 800; margin: 0 0 10px 0;
@@ -39,11 +39,11 @@
     .button.special { background: var(--primary-gradient); }
     .button:hover { transform: translateY(-2px); opacity: 0.9; }
 
-    /* Section Control - 关键：将间距从 60px 缩减到 15px */
+    /* Section Control */
     .section { padding: 15px 0; }
     .section-title { 
       font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; 
-      margin: 0 0 10px 0; padding-left: 12px; border-left: 4px solid #6366f1; 
+      margin: 0 0 15px 0; padding-left: 12px; border-left: 4px solid #6366f1; 
       display: flex; align-items: center; color: #1e1b4b;
     }
 
@@ -55,12 +55,12 @@
     /* Keywords Color */
     .highlight { color: #6366f1; font-weight: 700; }
 
-    /* Figures - 减小图片周边的留白 */
+    /* Figures */
     .figure-box { text-align: center; margin: 10px 0; }
     .figure-img { max-width: 100%; border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
-    .caption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; padding: 0 10%; line-height: 1.3; }
+    .caption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; padding: 0 5%; line-height: 1.3; }
 
-    /* BibTeX - 更加紧凑 */
+    /* BibTeX */
     .bibtex-box {
       background: #1e293b; color: #cbd5e1; padding: 15px; border-radius: 8px;
       font-family: 'monospace'; font-size: 0.8rem; overflow-x: auto;
@@ -104,14 +104,14 @@
     </div>
 
     <div class="link-container">
-      <a href="./" class="button"><i class="fas fa-home"></i> Project
+      <a href="./" class="button"><i class="fas fa-home"></i> Project</a>
       <a href="https://arxiv.org/abs/2601.03127" class="button"><i class="ai ai-arxiv"></i> arXiv</a>
       <a href="https://github.com/LivingFutureLab/UnifiedThinker" class="button special"><i class="fab fa-github"></i> Code</a>
       <a href="#" class="button"><i class="fas fa-database"></i> Dataset</a>
     </div>
   </section>
 
-  <div class="figure-box">
+  <div class="figure-box" style="padding: 0 20px;">
       <img src="src/case.jpg" class="figure-img" alt="Main Results">
       <p class="caption"><span class="highlight">Unified Thinker</span> bridges the reasoning-execution gap with modular upgrades.</p>
   </div>
@@ -123,16 +123,22 @@
       We propose <strong>Unified Thinker</strong>, a task-agnostic reasoning architecture designed as a <strong>unified planning core</strong> that can plug into diverse generators and workflows. 
       Unified Thinker <strong>decouples</strong> a dedicated <span class="highlight">Thinker</span> from the image <strong>Generator</strong>, enabling <strong>modular upgrades</strong> of reasoning without retraining the entire model. 
       We further introduce a <strong>two-stage training paradigm</strong>: first building a structured planning interface, then applying reinforcement learning to ground its policy in <strong>pixel-level feedback</strong>, ensuring plans optimize <strong>visual correctness</strong> over textual plausibility.
-      </p>
-    </div>
     </div>
   </section>
 
   <section class="section">
     <h2 class="section-title">Methodology</h2>
-    <div class="figure-box">
-      <img src="src/pipe.jpg" class="figure-img" alt="Pipeline">
-      <p class="caption"><strong>Figure 1: Think-then-Execute.</strong> Structured planning for precise synthesis.</p>
+    <div class="abstract-box" style="background: transparent; border: none; padding: 0 20px;">
+      <div class="figure-box" style="margin: 0;">
+        <img src="src/pipe.jpg" class="figure-img" alt="Pipeline">
+        <p class="caption"><strong>Figure 1: Think-then-Execute.</strong> Structured planning for precise synthesis.</p>
+      </div>
+      
+      <p style="margin-top: 15px; text-align: justify; font-size: 1rem;">
+        We decouple the reasoning process into a dedicated <strong>Thinker</strong> module. 
+        This allows the model to generate structured plans before the <strong>Generator</strong> 
+        begins the pixel-level synthesis.
+      </p>
     </div>
   </section>
 
@@ -140,14 +146,14 @@
     <h2 class="section-title">BibTeX</h2>
     <div class="bibtex-box">
       <pre style="margin: 0;">@misc{zhou2026unifiedthinkergeneralreasoning,
-        title={Unified Thinker: A General Reasoning Modular Core for Image Generation}, 
-        author={Sashuai Zhou and Qiang Zhou and Jijin Hu and Hanqing Yang and Yue Cao and Junpeng Ma and Yinchao Ma and Jun Song and Tiezheng Ge and Cheng Yu and Bo Zheng and Zhou Zhao},
-        year={2026},
-        eprint={2601.03127},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV},
-        url={https://arxiv.org/abs/2601.03127}, 
-  }</pre>
+  title={Unified Thinker: A General Reasoning Modular Core for Image Generation}, 
+  author={Sashuai Zhou and Qiang Zhou and Jijin Hu and Hanqing Yang and Yue Cao and Junpeng Ma and Yinchao Ma and Jun Song and Tiezheng Ge and Cheng Yu and Bo Zheng and Zhou Zhao},
+  year={2026},
+  eprint={2601.03127},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2601.03127}, 
+}</pre>
     </div>
   </section>
 
